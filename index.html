@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNR - Digital Native Recruiting</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#0f172a',    // Slate 900
+                        secondary: '#38bdf8',  // Light Blue 400
+                        accent: '#0284c7',     // Light Blue 600
+                        surface: '#f8fafc',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .page-section { display: none; }
+        .page-section.active { display: block; }
+        .gradient-text {
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-mesh {
+            background-color: #0f172a;
+            background-image: radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+                              radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+                              radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-slate-800 min-h-screen flex flex-col">
+
+    <nav class="bg-white/80 backdrop-blur-md fixed w-full z-50 border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="navigate('home')">
+                    <span class="text-3xl font-extrabold tracking-tighter text-primary">DNR<span class="text-accent">.</span></span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <button onclick="navigate('home')" class="nav-link text-slate-600 hover:text-accent font-medium transition-colors">Home</button>
+                    <button onclick="navigate('about')" class="nav-link text-slate-600 hover:text-accent font-medium transition-colors">About Us</button>
+                    <button onclick="navigate('careers')" class="nav-link text-accent font-semibold hover:text-primary transition-colors">Careers</button>
+                    
+                    <a href="mailto:partner@dnr-recruiting.example.com" class="inline-flex items-center justify-center px-6 py-2.5 border border-transparent text-sm font-semibold rounded-full text-white bg-primary hover:bg-slate-800 shadow-lg shadow-slate-900/20 transition-all transform hover:-translate-y-0.5">
+                        Be Our Partner
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-primary focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <button onclick="navigate('home')" class="block w-full text-left px-3 py-2 text-base font-medium text-slate-700 hover:text-accent hover:bg-slate-50 rounded-md">Home</button>
+                <button onclick="navigate('about')" class="block w-full text-left px-3 py-2 text-base font-medium text-slate-700 hover:text-accent hover:bg-slate-50 rounded-md">About Us</button>
+                <button onclick="navigate('careers')" class="block w-full text-left px-3 py-2 text-base font-medium text-accent hover:bg-slate-50 rounded-md">Careers</button>
+                <a href="mailto:partner@dnr-recruiting.example.com" class="block w-full text-center mt-4 px-3 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-slate-800">
+                    Be Our Partner
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-20">
+        
+        <!-- ================= HOME SECTION ================= -->
+        <section id="home" class="page-section active">
+            <!-- Hero -->
+            <div class="bg-mesh text-white relative overflow-hidden">
+                <div class="absolute inset-0 bg-primary/40 mix-blend-multiply"></div>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 relative z-10">
+                    <div class="max-w-3xl">
+                        <div class="inline-flex items-center rounded-full px-3 py-1 text-sm font-semibold text-secondary bg-secondary/10 border border-secondary/20 mb-6">
+                            <span class="flex h-2 w-2 rounded-full bg-secondary mr-2 animate-pulse"></span>
+                            Launching Q1 2027
+                        </div>
+                        <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+                            Bridging Talent.<br>
+                            <span class="gradient-text">Empowering the Future.</span>
+                        </h1>
+                        <p class="text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed">
+                            DNR is a premier digital native recruiting center. We build robust manpower pipelines, sourcing top-tier talent from India to drive innovation and growth in Singapore's dynamic workforce.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="mailto:partner@dnr-recruiting.example.com" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-base font-bold rounded-lg text-primary bg-white hover:bg-slate-50 transition-colors shadow-lg">
+                                Be Our Partner in India
+                            </a>
+                            <button onclick="navigate('careers')" class="inline-flex justify-center items-center px-8 py-4 border border-slate-600 text-base font-bold rounded-lg text-white hover:bg-slate-800 transition-colors">
+                                View Upcoming Careers
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Motto Banner -->
+            <div class="bg-white border-y border-slate-200 py-12">
+                <div class="max-w-7xl mx-auto px-4 text-center">
+                    <h2 class="text-3xl md:text-4xl font-light text-slate-800 italic">
+                        "For a brighter <span class="font-semibold text-accent">Singapore</span> and <span class="font-semibold text-orange-500">India</span>."
+                    </h2>
+                </div>
+            </div>
+            
+            <!-- Quick Info -->
+            <div class="py-16 bg-surface">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                            <div class="w-12 h-12 bg-blue-100 text-accent rounded-xl flex items-center justify-center mb-6">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-primary mb-3">Supply & Demand</h3>
+                            <p class="text-slate-600">Perfectly aligning the high-skilled supply of mainland India with the growing technological demands of Singapore.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                            <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-xl flex items-center justify-center mb-6">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-primary mb-3">Partnerships First</h3>
+                            <p class="text-slate-600">Actively seeking strategic operational and educational partners in mainland India to build a sustainable pipeline.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                            <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mb-6">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-primary mb-3">Digital Native</h3>
+                            <p class="text-slate-600">A modern approach to recruitment, utilizing data, remote assessments, and digital upskilling to prepare candidates.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ABOUT SECTION ================= -->
+        <section id="about" class="page-section bg-white py-16 lg:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                    <div class="mb-12 lg:mb-0">
+                        <h2 class="text-3xl font-extrabold text-primary sm:text-4xl mb-6">About DNR</h2>
+                        <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                            Scheduled to officially launch in <strong class="text-primary">Q1 2027</strong>, Digital Native Recruiting (DNR) is established with a singular, powerful vision: to construct a seamless, high-quality manpower pipeline between India and Singapore.
+                        </p>
+                        <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                            Singapore's rapid digital transformation requires a consistent influx of highly skilled professionals. Simultaneously, mainland India possesses one of the most vibrant and fast-growing pools of digital talent in the world. DNR exists to bridge this gap.
+                        </p>
+                        <blockquote class="border-l-4 border-accent pl-4 py-2 mt-8 mb-8 bg-slate-50 rounded-r-lg">
+                            <p class="text-xl font-medium text-slate-800 italic">"For a brighter Singapore and India."</p>
+                        </blockquote>
+                        <p class="text-lg text-slate-600 leading-relaxed">
+                            Our "digital native" methodology means we rely on modern vetting, continuous developer education, and remote-first assessment protocols. We don't just recruit; we develop and prepare talent to thrive in Singapore's unique corporate ecosystem.
+                        </p>
+                    </div>
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://placehold.co/800x600/0f172a/ffffff?text=Bridging+Nations" alt="Corporate Partnership" class="w-full h-auto object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-8">
+                            <div>
+                                <h3 class="text-2xl font-bold text-white mb-2">Seeking Partners</h3>
+                                <p class="text-slate-200 mb-4">We are actively looking for local agencies, universities, and training centers in mainland India to collaborate on this pipeline.</p>
+                                <a href="mailto:partner@dnr-recruiting.example.com" class="inline-flex items-center font-semibold text-secondary hover:text-white transition-colors">
+                                    Contact us to partner &rarr;
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CAREERS SECTION ================= -->
+        <section id="careers" class="page-section bg-surface py-16 lg:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl font-extrabold text-primary sm:text-4xl mb-4">Careers at DNR</h2>
+                    <p class="text-lg text-slate-600">
+                        While our full launch is in Q1 2027, we are <strong class="text-primary">currently hiring</strong> our core foundational team. Join us in building the infrastructure for the next generation of global recruitment.
+                    </p>
+                </div>
+
+                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-16">
+                    <!-- Job Card 1 -->
+                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Actively Hiring</span>
+                            <span class="text-sm text-slate-500">Remote / India</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-2">Lead Partner Liaison</h3>
+                        <p class="text-slate-600 text-sm mb-6">Responsible for establishing and nurturing relationships with educational institutions and training centers across mainland India.</p>
+                        <a href="mailto:careers@dnr-recruiting.example.com?subject=Application:%20Lead%20Partner%20Liaison" class="block w-full text-center px-4 py-2 border border-accent text-accent rounded-lg hover:bg-accent hover:text-white font-medium transition-colors">
+                            Apply via Email
+                        </a>
+                    </div>
+
+                    <!-- Job Card 2 -->
+                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Actively Hiring</span>
+                            <span class="text-sm text-slate-500">Singapore (Hybrid)</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-2">Talent Pipeline Manager</h3>
+                        <p class="text-slate-600 text-sm mb-6">Coordinate the supply and demand metrics between our Indian sourcing partners and Singaporean corporate clients.</p>
+                        <a href="mailto:careers@dnr-recruiting.example.com?subject=Application:%20Talent%20Pipeline%20Manager" class="block w-full text-center px-4 py-2 border border-accent text-accent rounded-lg hover:bg-accent hover:text-white font-medium transition-colors">
+                            Apply via Email
+                        </a>
+                    </div>
+
+                    <!-- Job Card 3 -->
+                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">Upcoming Q4 2026</span>
+                            <span class="text-sm text-slate-500">India / Remote</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-2">Technical Assessor</h3>
+                        <p class="text-slate-600 text-sm mb-6">Evaluate the digital skills of candidates using our proprietary remote assessment platforms to ensure client readiness.</p>
+                        <button disabled class="block w-full text-center px-4 py-2 border border-slate-200 text-slate-400 rounded-lg bg-slate-50 cursor-not-allowed font-medium">
+                            Opening Soon
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-primary rounded-2xl p-8 md:p-12 text-center text-white shadow-xl relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+                    <h3 class="text-2xl font-bold mb-4 relative z-10">Don't see a fit?</h3>
+                    <p class="text-slate-300 mb-8 max-w-2xl mx-auto relative z-10">We are always on the lookout for forward-thinking individuals to join our mission of building a brighter Singapore and India. Send us your resume for future consideration.</p>
+                    <a href="mailto:careers@dnr-recruiting.example.com" class="relative z-10 inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-bold rounded-lg text-primary bg-white hover:bg-slate-100 transition-colors shadow-lg">
+                        Email careers@dnr.com
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 border-t border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="flex justify-center md:justify-start mb-6 md:mb-0">
+                    <span class="text-2xl font-extrabold tracking-tighter text-white">DNR<span class="text-accent">.</span></span>
+                    <span class="ml-4 pl-4 border-l border-slate-700 text-slate-400 text-sm flex items-center">
+                        Digital Native Recruiting
+                    </span>
+                </div>
+                <div class="flex flex-wrap justify-center gap-6 text-sm">
+                    <button onclick="navigate('home')" class="text-slate-400 hover:text-white transition-colors">Home</button>
+                    <button onclick="navigate('about')" class="text-slate-400 hover:text-white transition-colors">About</button>
+                    <button onclick="navigate('careers')" class="text-slate-400 hover:text-white transition-colors">Careers</button>
+                    <a href="mailto:partner@dnr-recruiting.example.com" class="text-slate-400 hover:text-white transition-colors">Partner With Us</a>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-slate-800 text-center md:text-left flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
+                <p>&copy; 2026 Digital Native Recruiting. All rights reserved. Launching Q1 2027.</p>
+                <p class="mt-2 md:mt-0 italic">For a brighter Singapore and India.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Single Page App Navigation Logic
+        function navigate(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(sec => {
+                sec.classList.remove('active', 'fade-in');
+            });
+
+            // Show target section and add animation
+            const target = document.getElementById(sectionId);
+            if (target) {
+                target.classList.add('active', 'fade-in');
+            }
+
+            // Update active state on nav links (desktop)
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                if(link.textContent.toLowerCase().includes(sectionId) || (sectionId === 'about' && link.textContent === 'About Us')) {
+                    link.classList.add('text-accent', 'font-semibold');
+                    link.classList.remove('text-slate-600', 'font-medium');
+                } else {
+                    link.classList.remove('text-accent', 'font-semibold');
+                    link.classList.add('text-slate-600', 'font-medium');
+                }
+            });
+
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById('mobile-menu');
+            if(!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
